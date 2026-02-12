@@ -1,6 +1,6 @@
 * {
-    margin: 0;
-    padding: 0; 
+    margin: 0%;
+    padding: 0%; 
     box-sizing: border-box; 
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
     scroll-behavior: smooth;
@@ -117,7 +117,7 @@ font-size: 2rem;
 .mymain{
     display: flex;
     justify-content: center;
-    align-items: center;
+  align-items: center;
     margin-top: 13rem;
 }
 
@@ -125,14 +125,15 @@ font-size: 2rem;
 .icon{ color: aqua;}
 
 
-.students_home{
+.students-home{
+    
 .d_all_buttons{
-
     width: 16rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
+
 .d_all_buttons button{
   width: 5rem;
    height: 5vh; 
@@ -170,7 +171,8 @@ font-size: 2rem;
 
 .delete_form{
     position: fixed;
-    width: 25rem;
+    width: 90%;
+    max-width: 25rem;
     height: 45vh;
     gap: 2rem;
 }
@@ -206,30 +208,24 @@ font-size: 2rem;
    padding-top: 1rem;
 }
 
-
 .head nav ul a:active{
     color:blue;
 }
 
-
-
 .studentslist {
-     margin-right: 0%;
-    margin-left: 0%;
     box-shadow: 2px 3px 8px rgba(0,0,0,0.6);
     border-radius: 8px;
-    width: 30rem;
     background-color: rgb(169, 250, 254);
-   height: 100vh;
    display: flex;
    justify-content: center;
    align-items: flex-start;
+   width: 90%;
+   
+    height: 100vh;
 }
 
 .studentslist table{
-    margin-right: 0%;
-    margin-left: 0%;
-    width: 30rem;
+    width: 100%;
    border: 2px solid;
     border-radius: 8px;
     color: black;
@@ -245,16 +241,10 @@ font-size: 2rem;
    margin-top: 2.5rem;
    background-color: blue;
 }
-
-
 }
 
 
-
-
-
-
-.students_adding{
+.students-add{
 
 .head{
    margin-bottom: 2rem;
@@ -340,11 +330,17 @@ font-size: 2rem;
    background-color: blue;
 }
 
-
-
-
-
-
 }
+
+
+
+
+
+
+
+
+
+
+
 
 
