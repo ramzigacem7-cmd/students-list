@@ -1,269 +1,350 @@
-/* ==================== إعادة التهيئة و تنسيق عام ==================== */
 * {
-    margin: 0; /* إلغاء الهوامش الافتراضية */
-    padding: 0; /* إلغاء الحشوات الافتراضية */
-    box-sizing: border-box; /* التحكم في قياس العناصر */
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* الخط الأساسي */
+    margin: 0;
+    padding: 0; 
+    box-sizing: border-box; 
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+    scroll-behavior: smooth;
 }
 
 body {
-    text-align: center; /* محاذاة النصوص للوسط */
-    background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(9, 9, 121, 1) 0%, rgba(0, 212, 255, 1) 100%); /* خلفية متدرجة */
-    color: black; /* لون النص */
+    text-align: center; 
+    background-color: rgb(190, 246, 248); 
 }
 
-/* ==================== شريط البحث ==================== */
-.search {
-    background: linear-gradient(blue,white); /* خلفية متدرجة */
-    margin: 20px auto; /* مسافة خارجية مع توسيط */
-    padding: 15px; /* مسافة داخلية */
-    width: 90%; /* العرض النسبي */
-    max-width: 800px; /* أقصى عرض */
-    text-align: center; /* محاذاة النصوص للوسط */
-    box-shadow: 2px 4px 8px rgba(0,0,0,0.2); /* ظل */
-    border-radius: 20px; /* تدوير الحواف */
+.head{
+     display: flex;
+   flex-direction: column;
+   align-items: center;
+    margin-bottom: 2rem;
+    background-color: blue;
+ position: fixed;
+ top: 0;
+ left: 0;
+ width: 100%;
 }
 
-.sear {
-    display: flex; /* نظام فليكس */
-    flex-direction: column; /* العناصر عمودية */
-    justify-content: center; /* توسيط عمودي */
-    align-items: center; /* توسيط أفقي */
-    gap: 10px; /* فراغ بين العناصر */
-    width: 100%; /* العرض الكامل */
+.head h1{
+    color: rgb(183, 248, 248);
+    font-style: italic;
 }
 
-.sear input,.sear button {
-    width: 80%; /* عرض نسبي */
-    max-width: 300px; /* أقصى عرض */
-    text-align: center; /* النص في الوسط */
+.head .menu{
+  width: 95%;
+  display: flex;
+  justify-content: flex-end;
+   font-size: 2rem;
+   color:  rgb(183, 248, 248);
+   
 }
 
-/* ==================== نافذة إضافة/تعديل ==================== */
-#tab {
-    display: none; /* مخفي افتراضياً */
-    padding: 20px;
-    border: 1px solid #ccc;
-    background: linear-gradient(-45deg,green,blue,red); /* خلفية متدرجة */
-    width: 90%;
-    max-width: 500px;
-    min-height: 250px;
-    margin: 40px auto;
-    box-shadow: 0px 4px 8px rgba(0,0,0,0.3); /* ظل */
-    border-radius: 15px; /* تدوير الحواف */
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%) ; /* توسيط في الشاشة */
-    z-index: 6; /* فوق العناصر الأخرى */
-}
-
-/* زر إغلاق النافذة */
-#sort {
+.head .nav_bar{
     position: absolute;
     right: 0;
     top: 0;
-    width: 10%;
-    font-size: 18px;
-    color: white;
-    background-color: #f75757;
-    border: none;
-    border-radius: 0px 15px 0px 15px;
-    padding: 4px 8px;
-    cursor: pointer;
+    width: 50vw;
+    height: auto;
+    background-color: aqua;
+    display: none;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: center;
+    padding-left: 4px;
 }
 
-/* ==================== الفورم (إضافة وحذف) ==================== */
-.add-form, .delete-form {
+.exit{
     display: flex;
-    flex-direction: column;
-    gap: 10px;
-    width: 80%;
-    margin: auto;
-    margin-top: 20px;
-}
-
-/* ==================== الخلفية المعتمة خلف النوافذ ==================== */
-.overlay{
-    display: none; /* مخفية افتراضياً */
-    background-color: rgba(0,0,0,0.6); /* لون شفاف معتم */
-    z-index: 5 ;
-    position: absolute;
-    top: 0;
-    left: 0;
+    justify-content: flex-end;
     width: 100%;
-    height: 100%;
-    backdrop-filter: blur(3px); /* تأثير الضبابية */
+font-size: 2rem;
 }
 
-/* ==================== أزرار عامة ==================== */
-button {
-    cursor: pointer;
-    transition: all 0.2s ease; /* تأثير الحركة */
-    box-shadow: 0px 4px 7px rgba(0,0,0,0.3);
-    font-weight: bold;
-    border: none;
+.head nav ul{
+     width: 100%;
+     font-weight: bold;
+     list-style: none;
 }
 
-button:hover {
-    transform: scale(1.05); /* تكبير بسيط عند المرور */
-}
-
-/* ==================== ألوان الأزرار ==================== */
-#mybutton, #mybutton1, #mybutton2, #but {
-    width: 100px;
-    height: 35px;
-    border-radius: 20px;
-}
-
-#mybutton, #mybutton2 {
-   background:  linear-gradient(blue,white); 
-   color: black
-}
-
-#mybutton1 {
-    background:  linear-gradient(blue,white); 
-    color: black
-}
-
-#but {
-   background:  linear-gradient(blue,white); 
-   color: black
-}
-
-/* زر حذف الكل */
-#clearAll {
-    background: linear-gradient(90deg,red,white);
-    color: rgb(18, 17, 17);
-    font-weight: bold;
-    border-radius: 12px;
-    padding: 6px;
-}
-
-/* ==================== قائمة الطلاب ==================== */
-#studentbox {
-    box-shadow: 2px 3px 8px rgba(0,0,0,0.6);
-    border-radius: 20px;
-    padding: 20px;
-    color: white;
-    margin: 20px auto;
-    width: 90%;
-    max-width: 800px;
-    min-height: 200px;
-}
-
-#list {
+.head nav button{
     display: flex;
-    flex-direction: column;
-    gap: 15px;
-    list-style: none; /* إلغاء النقاط */
-    text-align: left;
-}
-
-.box {
+   align-items: center;
+    padding: 4px;
+    width: 100%;
+    height: 8vh;
+    background-color: aqua;
+    border: none;
     font-weight: bold;
+    font-size: 15px;
 }
 
-/* ==================== نافذة الحذف ==================== */
-#delete {
-    display: none; /* مخفية افتراضياً */
-    z-index: 6;
-    background: linear-gradient(-45deg,green,blue,red);
-    width: 90%;
-    max-width: 500px;
-    padding: 15px;
-    margin: 40px auto;
-    box-shadow: 0px 4px 8px rgba(0,0,0,0.3);
-    border-radius: 15px;
-    position: absolute;
-    top: 50%;
+.head nav button:hover{
+    background-color: rgb(169, 250, 254);
+    cursor: pointer;
+}
+
+.head nav li i{
+    border: 2px solid;
+    border-radius: 50%;
+   padding: 2px;
+   margin-right: 5px;
+   font-size: 1.5rem;
+}
+
+.search{
+    border: 2px solid  rgb(183, 248, 248);
+    border-radius: 50px;
+    width: 80vw;
+    height: 6vh;
+    margin-top: 2rem;
+    display: flex;
+    background-color: white;
+}
+
+.search input{
+    width: 100%;
+     border-radius: 50px;
+     border: none;
+     outline: none;
+     font-size: 15px;
+}
+
+.search i{
+    display: flex;
+    align-items: center;
+   font-size: larger;
+   padding: 10px;
+} 
+
+.mymain{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 13rem;
+}
+
+.icon1{color:#061afb;}
+.icon{ color: aqua;}
+
+
+.students_home{
+.d_all_buttons{
+
+    width: 16rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.d_all_buttons button{
+  width: 5rem;
+   height: 5vh; 
+   font-weight: bold;
+   border-radius: 8px; 
+    background-color: aqua;
+}
+
+.form-icon{
+    font-size: 5rem;
+    color:aqua;
+}
+
+.model{
+ position: absolute;
+ background-color: blue;
+  top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    box-shadow: 2px 2px 3px 4px aqua;
+      border-radius: 8px;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+       flex-direction: column;
 }
 
-/* زر إغلاق نافذة الحذف */
-#sort-delete {
-    position: absolute;
-    right: 0;
-    top: 0;
-    width: 10%;
-    font-size: 18px;
-    background-color: #f75757;
-    color: rgb(5, 2, 11);
-    border: none;
-    border-radius: 0px 15px 0px 15px;
-    padding: 4px 8px;
+.delete_all_form{
+  position: fixed;
+   width: 25rem;
+    height: 40vh;
+    justify-content: space-around;
+    flex-direction: column;
 }
 
-/* ==================== الفوتر ==================== */
+.delete_form{
+    position: fixed;
+    width: 25rem;
+    height: 45vh;
+    gap: 2rem;
+}
+
+.hidden{
+    display: none;
+}
+
+.delete_form input{
+    padding: 0.5rem;
+    width: 20rem;
+    border-radius: 50px;
+     border-color: aqua;
+}
+
+.delete_form button{
+   width: 5rem;
+   height: 5vh; 
+   padding: 2px;
+   border-radius: 8px;
+   font-weight: bold;
+   background-color: aqua;
+   box-shadow: 1px 1px 2px 2px aqua;
+}
+
+.face{
+    font-size: 5rem;
+}
+
+.head{
+   margin-bottom: 2rem;
+   padding-bottom: 1rem;
+   padding-top: 1rem;
+}
+
+
+.head nav ul a:active{
+    color:blue;
+}
+
+
+
+.studentslist {
+     margin-right: 0%;
+    margin-left: 0%;
+    box-shadow: 2px 3px 8px rgba(0,0,0,0.6);
+    border-radius: 8px;
+    width: 30rem;
+    background-color: rgb(169, 250, 254);
+   height: 100vh;
+   display: flex;
+   justify-content: center;
+   align-items: flex-start;
+}
+
+.studentslist table{
+    margin-right: 0%;
+    margin-left: 0%;
+    width: 30rem;
+   border: 2px solid;
+    border-radius: 8px;
+    color: black;
+    text-align: center;
+}
+
+.studentslist table th,.container td {
+  border: 2px solid;
+}
+
 .myfooter{
+   height: 25vh;
+   margin-top: 2.5rem;
+   background-color: blue;
+}
+
+
+}
+
+
+
+
+
+
+.students_adding{
+
+.head{
+   margin-bottom: 2rem;
+   padding-bottom: 2rem;
+   padding-top: 2rem;
+  
+}
+
+.mymain{
     display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10rem;
+}
+
+.add_student{
+   box-shadow: 2px 2px 2px 5px blue;
+    display: flex;
+    justify-content: center;
     flex-direction: column;
     align-items: center;
-    gap: 20px;
+    width:75vw;
+    height: 95vh;
+    border-radius: 8px;
+     padding: 2px;
+     background-color: rgb(169, 250, 254);
 }
 
-.allbutton{
+.same{
+   margin: 1rem;
+   width: 15rem;
+   height: 6vh;
+   border-radius: 50px;
+   padding: 4px;
+   padding-left: 1rem;
+   border-color: blue;
+}
+.same1{
+    margin: 1rem;
+   width: 8rem;
+   min-width:30px;
+   height: 6vh;
+   border-radius: 50px;
+   padding: 4px;
+   padding-left: 1rem;
+   border-color: blue; 
+}
+
+.gender_label{
     display: flex;
-    gap: 10px;
+    justify-content: space-around;
+    align-items: center;
+    width: 15rem;
+    height: 10vh;
+    border: none;
 }
 
-/* ==================== تنسيق خاص للموبايل ==================== */
-@media (max-width: 600px) {
-    .sear {
-        flex-direction: column;
-        width: 100%;
-    }
-
-    #tab, #delete {
-        width: 95%;
-        max-width: none;
-    }
-
-    .allbutton {
-        flex-direction: row;
-        width: 100%;
-        gap: 5px;
-    }
-
-    button {
-        width: 100%;
-        max-width: 200px;
-    }
-
-    #studentbox {
-        padding: 10px;
-        font-size: 14px;
-    }
+.gender_label legend{
+    font-weight: bold;
+    padding-bottom: 1rem;
 }
 
-/* ==================== الفورم: محاذاة وتنسيق العناصر ==================== */
-.add-form, 
-.delete-form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;   /* يوسّط العناصر أفقياً */
-    justify-content: center; /* إذا فيه مساحة، يوسّط عمودياً */
-    gap: 10px;
-    width: 100%;
+.add_student i{
+    font-size: 4rem;
+    padding: 4px;
 }
 
-/* العناصر داخل الفورم */
-.add-form input, 
-.delete-form input,
-.add-form button, 
-.delete-form button {
-    display: block;
-    width: 80%;           /* عرض مناسب */
-    max-width: 300px;
-    text-align: center;   /* النص في الوسط */
+.add_student button{
+    width: 5rem;
+    height: 5vh;
+    font-weight: bold;
+    margin-top: 1rem;
+    border-radius: 8px;
+    padding: 2px;
+    margin-bottom: 1rem;
+    background-color: blue;
+    color: white;
 }
 
-/* شريط البحث responsive */
-.search {
-    display: flex;
-    justify-content: center; /* يوسّط المحتوى أفقياً */
-    align-items: center;     /* يوسّط عمودياً */
-    flex-direction: column;  /* يخلي العناصر تحت بعض في الموبايل */
-    gap: 10px;
+.myfooter{
+   height: 25vh;
+   margin-top: 2.5rem;
+   background-color: blue;
 }
+
+
+
+
+
+
+}
+
+

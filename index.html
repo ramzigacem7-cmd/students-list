@@ -3,89 +3,71 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>My website</title>
+    <title>Students Management</title>
     <link rel="stylesheet" href="students.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
-    />
+    <link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
   </head>
-  <body >
-   
-    <div class="search">
-    <form class="sear">
-      <label for="searchID">search by ID :</label>
-      <input type="text" id="searchID" placeholder="enter ID like 2424001..." maxlength="12">
-       <button type="button" id="sear">search</button>
-    </form></div>
-    
-     <div id="tab">
-      <button type="button" id="sort">×</button>
-    <form class="add-form">
-      <label for="name">name :</label>
-      <input type="text" id="name">
-      
-      <label for="age">age :</label>
-      
-      <input type="number" id="age" min="19" max="23">
-      
-      <label for="average">average :</label>
+  
+  <body class="students_home" data-page="students" >
 
-      <input type="number" id="average" min="0" max="20" step="0.01">
-      <label for="ID">ID :</label>
-      <input type="text" id="ID" placeholder="enter ID like 2424001..." maxlength="12">
-      
-   <button type="submit" id="button3">submit </button>
-    </form>
+     <div class="delete_all_form hidden model">
+    <i class="bx bxs-face form-icon"></i>
+    <h3>Are you sure you want to delete all students information ?</h3>
+    <div class="d_all_buttons">
+      <button type="button" id="yes_btn">Yes</button>
+      <button type="button" id="no_btn">No</button>
+    </div>
+  </div>
 
-    
+    <div class="delete_form hidden model" >
+    <div class="exit"><i class='bx bx-x icon' id="d_exit"></i></div>
+    <i class='bx bxs-face icon face' ></i>
+     <input type="text" placeholder="enter ID like 2424..." maxlength="12" id="d_id">
+     <button type="button" id="d_button">Delete</button>
     </div>
 
-    <div class="overlay"></div>
-
-     <div id="delete">
-    <form class="delete-form">
-      <label for="ID-2">enter ID :</label>
-      <input type="text" id="ID-2" placeholder="enter like 2424..." maxlength="12">
-      
-      
-      
-   <button type="reset" id="button2">delete</button>
-    </form>
-
-    <button type="button" id="sort-delete">×</button>
+   <header class="head">
+       <div class="menu"><i class='bx bx-menu icon' id="menu"></i></div>
+       <h1>STUDENTS LIST</h1>
+       <div class="search">
+       <i class='bx bx-search icon'></i>
+      <input type="text" id="searchID" placeholder="Search by ID like 2424001..." maxlength="12">
     </div>
-
-    
-    <header class="myheader">
-    <div id="content" >
-    <H1>STUDENTS DATA</H1>
-    </div>
+    <nav class="nav_bar">
+      <div class="exit"><i class='bx bx-x icon1' id="exit" ></i></div>
+      <ul>
+      <li><button class="add_stud">Add new students</button></li>
+     <li><button class="delete_stud">Delete student</button></li>
+      <li><button class="delete_all">Delete all students</button></li>
+      </ul>
+    </nav>
     </header>
-    
-    <br>
+
     <main class="mymain">
-    <div id="studentbox">
-     <h3 id="text">STUDENT </h3>
-     <ul id="list">
-      <li class="box"></li>
-      <li class="box"></li>
-      <li class="box"></li>
-      <li class="box"></li>
-     </ul>
+       <div class="studentslist">
+      <table>
+        <thead>
+      <tr>
+        <th>Number</th>
+        <th>ID</th>
+         <th>First Name</th>
+         <th>Last Name</th>
+          <th>Gender</th>
+         <th>Date of Birth</th>
+         <th>Average</th>
+      </tr>
+      </thead>
+      <tbody class="container">
+      </tbody>
+       </table>
     </div>
     </main>
   
+  
   <footer class="myfooter">
-    <div class="allbutton">
-    <button type="button" id="mybutton">next</button>
-    <button  type="button" id="mybutton1">previous</button>
-    <button  type="button" id="mybutton2">delete student</button>
-    <button  type="button" id="but">add new student</button>
-    </div>
-    <button id="clearAll">Clear All Students</button>
     </footer>
-    
+
     <script src="students.js"></script>
   </body>
 </html>

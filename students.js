@@ -1,257 +1,198 @@
 
-// ==================== المتغيرات ====================
+const page=document.body.dataset.page;
+if(page === "students"){
+// Load data fron locale storage
 
-// أزرار التنقل
-const mybutton = document.getElementById("mybutton");   // التالي
-const mybutton1 = document.getElementById("mybutton1"); // السابق
+let students=JSON.parse(localStorage.getItem("students")) ||[];
 
-// عناصر عرض بيانات الطالب
-const box = document.querySelectorAll(".box");
-const mytext = document.querySelector("#text");
-const mystudentbox = document.getElementById("studentbox");
-const color = [
-    "linear-gradient(90deg,red,blue)",
-    "linear-gradient(90deg,black,grey)",
-    "linear-gradient(90deg,gold,silver)",
-    "linear-gradient(90deg,green,yellow)"
-];
+function displaystudents(){
+    let container=document.querySelector(".container");
+     container.innerHTML = "";
+    students.forEach((student,i) =>{
+     container.innerHTML += `
+         <tr>
+        <td>${i+1}</td>
+        <td class="data_id">${student.ID}</td>
+        <td >${student.fname}</td>
+        <td >${student.lname}</td>
+        <td >${student.gender}</td>
+        <td >${student.date}</td>
+        <td >${student.average}</td>
+        </tr>
+        `;
+    })
+ }
+ 
+// Variables
 
-// أزرار النماذج وواجهات الإدخال
-const mybut = document.getElementById("but");
-const mytab = document.getElementById("tab");
-const myoverlay = document.querySelector(".overlay");
-const mysortdelete = document.getElementById("sort-delete");
-const mysubmit = document.getElementById("button3");
-const mysort = document.getElementById("sort");
-const mysearch = document.getElementById("sear");
-const button2 = document.getElementById("button2");
-const mydelete = document.getElementById("delete");
-const mydel = document.getElementById("ID-2");
-const mybutton2 = document.getElementById("mybutton2");
-const clearAllBtn = document.getElementById("clearAll");
+const searchID = document.getElementById("searchID");   
+const my_menu = document.getElementById("menu");
+const my_nav = document.querySelector(".nav_bar");
+const my_exit = document.getElementById("exit");
 
-// ==================== التهيئة ====================
+// sreach for student by using his ID
 
-// تحميل الطلاب من localStorage أو إضافة الافتراضيين
-let students = JSON.parse(localStorage.getItem("students")) || [];
-if (students.length === 0) {
-    students = [
-        { name: "ramzi", age: 21, average: 14.64, ID: "232334657478" },
-        { name: "rachid", age: 22, average: 12.67, ID: "242434457478" },
-        { name: "mohamed", age: 18, average: 16.34, ID: "202034657478" },
-        { name: "omar", age: 22, average: 13.54, ID: "212134653478" }
-    ];
-    localStorage.setItem("students", JSON.stringify(students));
-}
-
-// مؤشر الطالب الحالي
-let index = -1;
-if (students.length > 0) {
-    index = 0;
-    updateStudentDisplay(index);
-}
-
-// ==================== عرض بيانات الطالب ====================
-
-function updateStudentDisplay(index) {
-    if (students.length === 0 || index < 0) {
-        mytext.innerHTML = "<h3>No Students Available</h3>";
-        box.forEach(b => b.textContent = "");
-        return;
+let base_color= null;
+searchID.addEventListener("keydown",(e) => {
+     if(e.key !== "Enter")return;
+    if(searchID.value == "")return;
+    const id = searchID.value.trim();
+    const myID = document.querySelectorAll(".data_id");
+     let  found=false;
+    if(base_color){
+     base_color.style.color="black";
+     base_color=null;
     }
-
-    mystudentbox.style.background = color[index % color.length];
-    mytext.innerHTML = `<h3>STUDENT ${index + 1}</h3>`;
-    box[0].textContent = `NAME: ${students[index].name}`;
-    box[1].textContent = `AGE: ${students[index].age}`;
-    box[2].textContent = `AVERAGE: ${students[index].average}`;
-    box[3].textContent = `ID: ${students[index].ID}`;
-}
-
-// ==================== التنقل بين الطلبة ====================
-
-mybutton.addEventListener("click", () => {
-    if (students.length === 0) return;
-    index = (index + 1) % students.length;
-    updateStudentDisplay(index);
+   
+   students.forEach((student,index)=>{
+   if(student.ID === id){
+    myID[index].style.color ="red";
+    base_color = myID[index];
+    found = true;
+   }
+   });
+   searchID.value = "";
+   if(!found){
+    alert("this ID doesn't exist!");
+   }
 });
 
-mybutton1.addEventListener("click", () => {
-    if (students.length === 0) return;
-    index = (index - 1 + students.length) % students.length;
-    updateStudentDisplay(index);
-});
+// show and hide the menu
 
-// ==================== إضافة طالب ====================
+my_menu.addEventListener("click", ()=>{
+    my_nav.style.display="flex";
+    my_nav.classList.toggle("active");
+})
+my_exit.addEventListener("click", ()=>{
+     my_nav.style.display="none";
+})
 
-// إظهار نموذج الإضافة
-mybut.addEventListener("click", () => {
-    mytab.style.display = "flex";
-    myoverlay.style.display = "flex";
-});
+const add_student = document.querySelector(".add_stud");
 
-// مسح الحقول في نموذج الإضافة
-function clear_form_add() {
-    document.getElementById("name").value = "";
-    document.getElementById("ID").value = "";
-    document.getElementById("age").value = "";
-    document.getElementById("average").value = "";
+add_student.addEventListener("click", ()=>{
+ window.location.href="index1.html"
+})
+
+
+const delete_exit = document.getElementById("d_exit");
+const delete_form = document.querySelector(".delete_form");
+const delete_student = document.querySelector(".delete_stud");
+const delete_id =document.getElementById("d_id");
+const delete_button = document.getElementById("d_button");
+
+delete_student.addEventListener("click", ()=>{
+    delete_form.classList.toggle("hidden");
+     my_nav.style.display="none";
+})
+delete_exit.addEventListener("click", (e)=>{
+    delete_form.classList.toggle("hidden");
+})
+
+delete_button.addEventListener("click", ()=>{
+   delete_form.classList.toggle("hidden");
+    
+    let d_id = delete_id.value.trim();
+    if(d_id === "")return;
+    let exist = false;
+    for(let i=0 ; i<students.length;i++){
+        if(students[i].ID === d_id){
+           students.splice(i, 1);
+           localStorage.setItem("students",JSON.stringify(students));
+           displaystudents();
+           exist = true;
+           break;
+        }
+    }
+    if(!exist){
+            alert("this ID doesn't exist");
+        }
+})
+
+const yes_button = document.getElementById("yes_btn");
+const no_button = document.getElementById("no_btn");
+const delete_all = document.querySelector(".delete_all")
+const delete_all_form = document.querySelector(".delete_all_form");
+
+delete_all.addEventListener("click",()=>{
+  delete_all_form.classList.toggle("hidden");
+  
+})
+
+no_button.addEventListener("click", ()=>{
+     delete_all_form.classList.toggle("hidden");
+})
+
+yes_button.addEventListener("click", ()=>{
+   localStorage.removeItem("students");
+   students = [];
+   displaystudents();
+    delete_all_form.classList.toggle("hidden");
+})
+
+ displaystudents();
+
 }
 
-// إضافة طالب جديد
-mysubmit.addEventListener("click", (e) => {
-    e.preventDefault();
-    const name = document.getElementById("name").value.trim();
-    const ID = document.getElementById("ID").value.trim();
-    const age = parseInt(document.getElementById("age").value);
-    const average = parseFloat(document.getElementById("average").value);
-    if (!name) {
-    alert("Please enter a name.");
-    return;
-}
-
-if (isNaN(age)) {
-    alert("Please enter a valid age.");
-    return;
-}
-
-if (age < 19 || age > 23) {
-    alert("Age must be between 19 and 23.");
-    return;
-}
-
-if (isNaN(average)) {
-    alert("Please enter a valid average.");
-    return;
-}
-
-if (average < 0 || average > 20) {
-    alert("Average must be between 0 and 20.");
-    return;
-}
-
-if (!ID) {
-    alert("Please enter an ID.");
-    return;
-}
-
-if (!/^(\d{2})\1$/.test(ID.slice(0, 4))) {
-    alert("First 4 digits of ID must be like 2424, 2323, 1919, etc.");
-    return;
-}
-
-
+if(page === "add"){
     
 
-    const exists = students.some(student => student.ID === ID);
-    if (exists) {
-        alert("هذا الطالب موجود بالفعل بهذا المعرف (ID)!");
-        clear_form_add();
-        return;
+const my_btn_add = document.getElementById("add");
+
+
+class student{
+    constructor(ID,fname,lname,gender,date,average){
+    this.ID=ID;
+    this.fname=fname;
+    this.lname=lname;
+    this.gender=gender;
+    this.date=date;
+    this.average=average;
     }
+ }
 
-    students.push({ name, age, average, ID });
-    localStorage.setItem("students", JSON.stringify(students));
-    index = students.length - 1;
-    updateStudentDisplay(index);
+ let students = JSON.parse(localStorage.getItem("students")) || [];
+ 
+ const my_inputs = document.querySelectorAll(".add_student input")
 
-    clear_form_add();
-    mytab.style.display = "none";
-    myoverlay.style.display = "none";
-});
+my_btn_add.addEventListener("click", ()=>{
+    let id =document.querySelector(".id").value;
+ let fname =document.querySelector(".fname").value;
+ let lname =document.querySelector(".lname").value;
+ let gender_input =document.querySelector('input[name="gender"]:checked');
+ if(!gender_input ){
+    alert("choose the gender!");
+    return;
+ }
+    let gender = gender_input.value;
+ let date =document.querySelector(".date").value;
+ let average =document.querySelector(".average").value;
 
-// إخفاء نموذج الإضافة
-mysort.addEventListener("click", () => {
-    mytab.style.display = "none";
-    myoverlay.style.display = "none";
-});
-
-// ==================== البحث عن طالب ====================
-
-function clear_form_search() {
-    document.getElementById("searchID").value = "";
+if(!id || !fname || !lname || !date || !average){
+    alert("please fill all fields");
+    return;
 }
 
-mysearch.addEventListener("click", (e) => {
-    e.preventDefault();
-    const searchID = document.getElementById("searchID").value.trim();
-    let found = false;
+let newstudent =new student(id,fname,lname,gender,date,average);
+students.push(newstudent);
+localStorage.setItem("students",JSON.stringify(students));
+clear_inputs();
+window.location.href="index.html";
+})
 
-    for (let i = 0; i < students.length; i++) {
-        if (students[i].ID == searchID) {
-            found = true;
-            index = i;
-            updateStudentDisplay(index);
-            clear_form_search();
-            return;
-        }
-    }
 
-    if (!found) {
-        alert("ID is not exist");
-        clear_form_search();
-    }
-});
+ function clear_inputs(){
+   document.querySelector(".id").value="";
+   document.querySelector(".fname").value="";
+   document.querySelector(".lname").value="";
+   document.querySelectorAll('input[name="gender"]').forEach(r=>r.checked=false);
+   document.querySelector(".date").value="";
+   document.querySelector(".average").value="";
+ }
 
-// ==================== حذف طالب ====================
 
-// إظهار نموذج الحذف
-mybutton2.addEventListener("click", () => {
-    mydelete.style.display = "flex";
-    myoverlay.style.display = "flex";
-});
+}
 
-// إخفاء نموذج الحذف
-mysortdelete.addEventListener("click", () => {
-    mydelete.style.display = "none";
-    myoverlay.style.display = "none";
-});
 
-// تنفيذ الحذف
-button2.addEventListener("click", (e) => {
-    e.preventDefault();
-    students = JSON.parse(localStorage.getItem("students")) || [];
-    const ID = mydel.value.trim();
-    let found = false;
-
-    for (let i = 0; i < students.length; i++) {
-        if (students[i].ID.trim() === ID.trim()) {
-            students.splice(i, 1);
-            found = true;
-            localStorage.setItem("students", JSON.stringify(students));
-
-            if (students.length === 0) {
-                index = -1;
-            } else {
-                index = Math.min(index, students.length - 1);
-            }
-
-            updateStudentDisplay(index);
-            mydelete.style.display = "none";
-            myoverlay.style.display = "none";
-            mydel.value = "";
-            break;
-        }
-    }
-
-    if (!found) {
-        alert("ID is not exist");
-        mydel.value = "";
-    }
-});
-
-// ==================== مسح جميع الطلبة ====================
-
-clearAllBtn.addEventListener("click", () => {
-    if (confirm("هل أنت متأكد أنك تريد مسح جميع الطلبة؟")) {
-        students = [];
-        localStorage.setItem("students", JSON.stringify(students));
-        index = -1;
-        updateStudentDisplay(index);
-        alert("تم مسح جميع الطلبة!");
-    }
-});
-getElementById("but");
 
 
 

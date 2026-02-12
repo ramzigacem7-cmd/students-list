@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Add New Student</title>
+    <link rel="stylesheet" href="students.css" />
+    <link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  </head>
+
+  <body class="students_adding" data-page="add">
+
+   <header class="head">
+       <h1>ADD NEW STUDENT</h1>
+    </header>
+
+    <main class="mymain">
+       <form class="add_student">
+        <i class='bx bxs-face icon1'></i>
+        <label> 
+          ID
+       <input class="id same" type="text" name="ID"  placeholder="enter ID like 2424001.." maxlength="12" required>
+       </label>
+       <label>
+         First Name
+       <input class="fname same" type="text" name="fname" placeholder="enter First Name" required>
+       </label>
+       <label>
+        Last Name
+       <input class="lname same" type="text" name="lname" placeholder="enter Last Name" required>
+       </label>
+       <fieldset class="gender_label">
+         <legend>Gender:</legend>
+         <label>
+       <input class="gender" type="radio" name="gender" value="male">Male
+       </label>
+       <label>
+       <input class="gender" type="radio" name="gender" value="female">Female
+       </label>
+       </fieldset>
+       <label>
+         Date
+       <input class="date same1" type="date" name="date" required>
+      </label>
+      <label>
+        Average
+       <input class="average same1 " type="number" placeholder="enter Average" name="average" min="0" max="20" required>
+       </label>
+       <button type="submit" id="add">ADD</button>
+    </form>
+    </main>
+  
+  <footer class="myfooter">
+     
+    </footer>
+
+    <script src="students.js"></script>
+  </body>
+</html>
