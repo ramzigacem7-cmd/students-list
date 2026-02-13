@@ -41,14 +41,14 @@ body {
     position: absolute;
     right: 0;
     top: 0;
-    width: 50vw;
+    width: 40vw;
     height: auto;
     background-color: aqua;
     display: none;
     justify-content: center;
     flex-wrap: wrap;
     align-items: center;
-    padding-left: 4px;
+    padding-left: 5px;
 }
 
 .exit{
@@ -128,7 +128,7 @@ font-size: 2rem;
 .students-home{
     
 .d_all_buttons{
-    width: 16rem;
+    width: 20rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -163,17 +163,16 @@ font-size: 2rem;
 
 .delete_all_form{
   position: fixed;
-   width: 25rem;
-    height: 40vh;
+   width: 60%;
+    height: 42vh;
     justify-content: space-around;
     flex-direction: column;
 }
 
 .delete_form{
     position: fixed;
-    width: 90%;
-    max-width: 25rem;
-    height: 45vh;
+    width: 60%;
+    height: 55vh;
     gap: 2rem;
 }
 
@@ -183,7 +182,7 @@ font-size: 2rem;
 
 .delete_form input{
     padding: 0.5rem;
-    width: 20rem;
+    width: 30rem;
     border-radius: 50px;
      border-color: aqua;
 }
@@ -241,7 +240,41 @@ font-size: 2rem;
    margin-top: 2.5rem;
    background-color: blue;
 }
+
+@media (max-width:500px) {
+     .d_all_buttons{
+      width:60vw;
+    }.delete_all_form button{
+        width: 15vw;
+        height: 4vh;
+    }
+    .delete_form button{
+         width: 15vw;
+        height: 4vh;
+    }
+    .delete_all_form{
+        width: 80vw;
+        height: 35vh;
+    }
+    .delete_form input{
+        width: 65vw;
+        height: 5vh;
+    }
+    .delete_form{
+        width: 80vw;
+         height: 45vh;
+    }
+    .search {
+        height: 6vh;
+    }
+    
 }
+
+}
+
+
+
+
 
 
 .students-add{
@@ -257,7 +290,7 @@ font-size: 2rem;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 10rem;
+    margin-top: 9rem;
 }
 
 .add_student{
@@ -266,8 +299,8 @@ font-size: 2rem;
     justify-content: center;
     flex-direction: column;
     align-items: center;
-    width:75vw;
-    height: 95vh;
+    width:60vw;
+    height: 100vh;
     border-radius: 8px;
      padding: 2px;
      background-color: rgb(169, 250, 254);
@@ -275,7 +308,7 @@ font-size: 2rem;
 
 .same{
    margin: 1rem;
-   width: 15rem;
+   width: 45vw ;
    height: 6vh;
    border-radius: 50px;
    padding: 4px;
@@ -284,13 +317,12 @@ font-size: 2rem;
 }
 .same1{
     margin: 1rem;
-   width: 8rem;
-   min-width:30px;
+   width: 15vw;
    height: 6vh;
    border-radius: 50px;
    padding: 4px;
    padding-left: 1rem;
-   border-color: blue; 
+    border-color: blue;
 }
 
 .gender_label{
@@ -313,7 +345,7 @@ font-size: 2rem;
 }
 
 .add_student button{
-    width: 5rem;
+    width: 6rem;
     height: 5vh;
     font-weight: bold;
     margin-top: 1rem;
@@ -330,6 +362,37 @@ font-size: 2rem;
    background-color: blue;
 }
 
+@media (max-width:900px) {
+    .same1{
+      width:25vw;
+    }
+@media (max-width:500px) {
+    .same1{
+      width:45vw;
+      height: 5vh;
+    }
+    .same{
+        width: 50vw;
+        height: 5vh;
+    }
+    .add_student button{
+        width: 15vw;
+        height: 4vh;
+    }
+    .head h1{
+    font-size: larger ;
+    }
+    .myfooter{
+        height: 15vh;
+    }
+    .mymain{
+        margin-top: 8rem;
+    }
+
+}
+
+
+}
 }
 
 
