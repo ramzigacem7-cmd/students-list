@@ -1,73 +1,172 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Students Management</title>
-        <link rel="stylesheet" href="students.css" />
-    <link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="students.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
   </head>
-  
-  <body class="students-home" data-page="students" >
 
-     <div class="delete_all_form hidden model">
-    <i class="bx bxs-face form-icon"></i>
-    <h3>Are you sure you want to delete all students information ?</h3>
-    <div class="d_all_buttons">
-      <button type="button" id="yes_btn">Yes</button>
-      <button type="button" id="no_btn">No</button>
-    </div>
-  </div>
-
-    <div class="delete_form hidden model" >
-    <div class="exit"><i class='bx bx-x icon' id="d_exit"></i></div>
-    <i class='bx bxs-face icon face' ></i>
-     <input type="text" placeholder="enter ID like 2424..." maxlength="12" id="d_id">
-     <button type="button" id="d_button">Delete</button>
+  <body class="students-home" data-page="students">
+    <div class="delete_all_form hidden model">
+      <i class="bx bxs-face form-icon"></i>
+      <h3>Are you sure you want to delete all students information ?</h3>
+      <div class="d_all_buttons">
+        <button type="button" id="yes_btn">Yes</button>
+        <button type="button" id="no_btn">No</button>
+      </div>
     </div>
 
-   <header class="head">
-       <div class="menu"><i class='bx bx-menu icon' id="menu"></i></div>
-       <h1>STUDENTS LIST</h1>
-       <div class="search">
-       <i class='bx bx-search icon'></i>
-      <input type="text" id="searchID" placeholder="Search by ID like 2424001..." maxlength="12">
+    <div class="delete_form hidden model">
+      <div class="exit"><i class="bx bx-x icon" id="d_exit"></i></div>
+      <i class="bx bxs-face icon face"></i>
+      <input
+        type="text"
+        name="id"
+        placeholder="enter ID like 2424..."
+        maxlength="12"
+        id="d_id"
+      />
+      <button type="button" id="d_button">Delete</button>
     </div>
-    <nav class="nav_bar">
-      <div class="exit"><i class='bx bx-x icon1' id="exit" ></i></div>
-      <ul>
-      <li><button class="add_stud">Add new students</button></li>
-     <li><button class="delete_stud">Delete student</button></li>
-      <li><button class="delete_all">Delete all students</button></li>
-      </ul>
-    </nav>
+
+    <header class="head">
+      <div class="menu"><i class="bx bx-menu icon" id="menu"></i></div>
+      <h1>STUDENTS LIST</h1>
+      <div class="search">
+        <i class="bx bx-search icon"></i>
+        <input
+          type="text"
+          id="searchID"
+          placeholder="Search by ID like 2424001..."
+          maxlength="12"
+          name="search"
+        />
+      </div>
+      <nav class="nav_bar">
+        <div class="exit"><i class="bx bx-x icon1" id="exit"></i></div>
+        <ul>
+          <hr style="background-color: blue" size="5" />
+          <li><button class="add_stud">Add new students</button></li>
+          <hr style="background-color: blue" size="5" />
+          <li><button class="delete_stud">Delete student</button></li>
+          <hr style="background-color: blue" size="5" />
+          <li><button class="delete_all">Delete all students</button></li>
+          <hr style="background-color: blue" size="5" />
+        </ul>
+      </nav>
     </header>
 
     <main class="mymain">
       <div class="studentslist">
-      <table >
-        <thead>
-      <tr>
-        <th>Nbr</th>
-        <th>ID</th>
-         <th>F-Name</th>
-         <th>L-Name</th>
-          <th>Gender</th>
-         <th>Date</th>
-         <th>note</th>
-      </tr>
-      </thead>
-      <tbody class="container">
-      </tbody>
-       </table>
-       </div>
+        <button class="card">
+          <div class="picture">
+            <img src="2.jpg" alt="" />
+          </div>
+          <div class="text">
+            <h2>Ramzi Gacem</h2>
+          </div>
+        </button>
+        <button class="card">
+          <div class="picture">
+            <img src="2.jpg" alt="" />
+          </div>
+          <div class="text">
+            <h2>Ramzi Gacem</h2>
+          </div>
+        </button>
+        <button class="card">
+          <div class="picture">
+            <img src="2.jpg" alt="" />
+          </div>
+          <div class="text">
+            <h2>Ramzi Gacem</h2>
+          </div>
+        </button>
+        <button class="card">
+          <div class="picture">
+            <img src="2.jpg" alt="" />
+          </div>
+          <div class="text">
+            <h2>Ramzi Gacem</h2>
+          </div>
+        </button>
+        <button class="card">
+          <div class="picture">
+            <img src="2.jpg" alt="" />
+          </div>
+          <div class="text">
+            <h2>Ramzi Gacem</h2>
+          </div>
+        </button>
+        <button class="card">
+          <div class="picture">
+            <img src="2.jpg" alt="" />
+          </div>
+          <div class="text">
+            <h2>Ramzi Gacem</h2>
+          </div>
+        </button>
+        <button class="card">
+          <div class="picture">
+            <img src="2.jpg" alt="" />
+          </div>
+          <div class="text">
+            <h2>Ramzi Gacem</h2>
+          </div>
+        </button>
+        <button class="card">
+          <div class="picture">
+            <img src="2.jpg" alt="" />
+          </div>
+          <div class="text">
+            <h2>Ramzi Gacem</h2>
+          </div>
+        </button>
+        <button class="card">
+          <div class="picture">
+            <img src="2.jpg" alt="" />
+          </div>
+          <div class="text">
+            <h2>Ramzi Gacem</h2>
+          </div>
+        </button>
+        <button class="card">
+          <div class="picture">
+            <img src="2.jpg" alt="" />
+          </div>
+          <div class="text">
+            <h2>Ramzi Gacem</h2>
+          </div>
+        </button>
+        <button class="card">
+          <div class="picture">
+            <img src="2.jpg" alt="" />
+          </div>
+          <div class="text">
+            <h2>Ramzi Gacem</h2>
+          </div>
+        </button>
+        <button class="card">
+          <div class="picture">
+            <img src="2.jpg" alt="" />
+          </div>
+          <div class="text">
+            <h2>Ramzi Gacem</h2>
+          </div>
+        </button>
+      </div>
     </main>
-  
-  
-  <footer class="myfooter">
 
-    </footer>
+    <footer class="myfooter"></footer>
 
     <script src="students.js"></script>
   </body>

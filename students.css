@@ -1,409 +1,365 @@
 * {
-    margin: 0%;
-    padding: 0%; 
-    box-sizing: border-box; 
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
-    scroll-behavior: smooth;
+  margin: 0%;
+  padding: 0%;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  scroll-behavior: smooth;
 }
 
 body {
-    text-align: center; 
-    background-color: rgb(190, 246, 248); 
+  text-align: center;
+  background-color: rgb(190, 246, 248);
 }
 
-.head{
-     display: flex;
-   flex-direction: column;
-   align-items: center;
-    margin-bottom: 2rem;
-    background-color: blue;
- position: fixed;
- top: 0;
- left: 0;
- width: 100%;
+.head {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 2rem;
+  background-color: blue;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  border-bottom-left-radius: 30px;
+  border-bottom-right-radius: 30px;
 }
 
-.head h1{
-    color: rgb(183, 248, 248);
-    font-style: italic;
+.head h1 {
+  color: rgb(183, 248, 248);
+  font-style: italic;
+  font-size: 1.5rem;
 }
 
-.head .menu{
+.head .menu {
   width: 95%;
   display: flex;
+  justify-content: left;
+  font-size: 2rem;
+  color: rgb(183, 248, 248);
+}
+
+.head .nav_bar {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 50vw;
+  height: 100vh;
+  background-color: aqua;
+  display: none;
+  justify-content: center;
+  align-content: flex-start;
+  flex-wrap: wrap;
+}
+
+.exit {
+  display: flex;
   justify-content: flex-end;
-   font-size: 2rem;
-   color:  rgb(183, 248, 248);
-   
+  width: 100%;
+  height: 6vh;
+  font-size: 2.5rem;
 }
 
-.head .nav_bar{
-    position: absolute;
-    right: 0;
-    top: 0;
-    width: 40vw;
-    height: auto;
-    background-color: aqua;
-    display: none;
-    justify-content: center;
-    flex-wrap: wrap;
-    align-items: center;
-    padding-left: 5px;
+.head nav ul {
+  width: 100%;
+  height: 20vh;
+  font-weight: bold;
+  list-style: none;
 }
 
-.exit{
-    display: flex;
-    justify-content: flex-end;
-    width: 100%;
-font-size: 2rem;
-}
-
-.head nav ul{
-     width: 100%;
-     font-weight: bold;
-     list-style: none;
-}
-
-.head nav button{
-    display: flex;
-   align-items: center;
-    padding: 4px;
-    width: 100%;
-    height: 8vh;
-    background-color: aqua;
-    border: none;
-    font-weight: bold;
-    font-size: 15px;
-}
-
-.head nav button:hover{
-    background-color: rgb(169, 250, 254);
-    cursor: pointer;
-}
-
-.head nav li i{
-    border: 2px solid;
-    border-radius: 50%;
-   padding: 2px;
-   margin-right: 5px;
-   font-size: 1.5rem;
-}
-
-.search{
-    border: 2px solid  rgb(183, 248, 248);
-    border-radius: 50px;
-    width: 80vw;
-    height: 6vh;
-    margin-top: 2rem;
-    display: flex;
-    background-color: white;
-}
-
-.search input{
-    width: 100%;
-     border-radius: 50px;
-     border: none;
-     outline: none;
-     font-size: 15px;
-}
-
-.search i{
-    display: flex;
-    align-items: center;
-   font-size: larger;
-   padding: 10px;
-} 
-
-.mymain{
-    display: flex;
-    justify-content: center;
+.head nav button {
+  display: flex;
   align-items: center;
-    margin-top: 13rem;
+  padding-left: 15px;
+  width: 100%;
+  height: 6vh;
+  background-color: aqua;
+  border: none;
+  font-weight: bold;
+  font-size: 15px;
 }
 
-.icon1{color:#061afb;}
-.icon{ color: aqua;}
-
-
-.students-home{
-    
-.d_all_buttons{
-    width: 20rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+.head nav button:hover {
+  background-color: rgb(247, 242, 242);
+  cursor: pointer;
 }
 
-.d_all_buttons button{
+.head nav li i {
+  border-radius: 50%;
+  padding: 2px;
+  margin-right: 5px;
+  font-size: 1.5rem;
+}
+
+.search {
+  border: 2px solid rgb(183, 248, 248);
+  border-radius: 50px;
+  width: 80vw;
+  height: 6vh;
+  margin-top: 2rem;
+  display: flex;
+  background-color: white;
+}
+
+.search input {
+  width: 100%;
+  border-radius: 50px;
+  border: none;
+  outline: none;
+  font-size: 15px;
+}
+
+.search i {
+  display: flex;
+  align-items: center;
+  font-size: larger;
+  padding: 10px;
+}
+
+.mymain {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 13rem;
+}
+
+.icon1 {
+  color: #061afb;
+}
+.icon {
+  color: aqua;
+}
+.card {
+  box-shadow: 2px 3px 8px rgba(0, 0, 0, 0.6);
+  border-radius: 50px;
+  border: none;
+  width: 80vw;
+  height: 8vh;
+  background-color: #061afb;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.card img {
+  border-radius: 50px;
+  width: 100%;
+  height: 100%;
+}
+.card .text {
+  width: 100%;
+  border-radius: 50px;
+  padding-top: 8px;
+  height: 100%;
+  color: aqua;
+  display: flex;
+  padding-left: 10px;
+  text-align: start;
+}
+.card .picture {
+  width: 20vw auto;
+  height: 100%;
+  border: none;
+  border-radius: 50px;
+  display: flex;
+  color: aqua;
+  justify-content: start;
+}
+.d_all_buttons {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+}
+.d_all_buttons button {
   width: 5rem;
-   height: 5vh; 
-   font-weight: bold;
-   border-radius: 8px; 
-    background-color: aqua;
+  height: 6vh;
+  border: none;
+  font-weight: bold;
+  border-radius: 30px;
+  background-color: aqua;
 }
 
-.form-icon{
-    font-size: 5rem;
-    color:aqua;
+.form-icon {
+  font-size: 5rem;
+  color: aqua;
 }
 
-.model{
- position: absolute;
- background-color: blue;
+.model {
+  position: absolute;
+  background-color: blue;
   top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    box-shadow: 2px 2px 3px 4px aqua;
-      border-radius: 8px;
-      z-index: 100;
-      display: flex;
-      align-items: center;
-       flex-direction: column;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 2px 2px 3px 4px aqua;
+  border-radius: 8px;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
 }
 
-.delete_all_form{
+.delete_all_form {
   position: fixed;
-   width: 60%;
-    height: 42vh;
-    justify-content: space-around;
-    flex-direction: column;
+  width: 90%;
+  height: 50vh auto;
+  padding: 15px;
+  border-radius: 30px;
+  justify-content: space-around;
+  gap: 10px;
+  flex-direction: column;
 }
 
-.delete_form{
-    position: fixed;
-    width: 60%;
-    height: 55vh;
-    gap: 2rem;
+.delete_form {
+  position: fixed;
+  width: 90vw;
+  height: 50vh auto;
+  gap: 1rem;
+  padding: 15px;
+
+  border-radius: 30px;
 }
 
-.hidden{
-    display: none;
+.hidden {
+  display: none;
 }
 
-.delete_form input{
-    padding: 0.5rem;
-    width: 30rem;
-    border-radius: 50px;
-     border-color: aqua;
+.delete_form input {
+  padding: 0.5rem;
+  width: 70vw;
+  height: 6vh;
+  border-radius: 50px;
+  border: none;
 }
 
-.delete_form button{
-   width: 5rem;
-   height: 5vh; 
-   padding: 2px;
-   border-radius: 8px;
-   font-weight: bold;
-   background-color: aqua;
-   box-shadow: 1px 1px 2px 2px aqua;
+.delete_form button {
+  width: 70vw;
+  height: 6vh;
+  padding: 2px;
+  border: none;
+  border-radius: 50px;
+  font-weight: bold;
+  font-size: 1rem;
+  background-color: aqua;
+  box-shadow: 1px 1px 2px 2px aqua;
 }
 
-.face{
-    font-size: 5rem;
+.face {
+  font-size: 5rem;
 }
 
-.head{
-   margin-bottom: 2rem;
-   padding-bottom: 1rem;
-   padding-top: 1rem;
+.head {
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  padding-top: 1rem;
 }
 
-.head nav ul a:active{
-    color:blue;
+.head nav ul a:active {
+  color: blue;
 }
 
 .studentslist {
-    box-shadow: 2px 3px 8px rgba(0,0,0,0.6);
-    border-radius: 8px;
-    background-color: rgb(169, 250, 254);
-   display: flex;
-   justify-content: center;
-   align-items: flex-start;
-   width: 90%;
-   
-    height: 100vh;
+  box-shadow: 2px 3px 8px rgba(0, 0, 0, 0.6);
+  border-radius: 30px;
+  background-color: rgb(169, 250, 254);
+  display: flex;
+  padding: 25px;
+  flex-direction: column;
+  gap: 15px;
+  width: 90%;
+  height: 100vh auto;
 }
 
-.studentslist table{
-    width: 100%;
-   border: 2px solid;
-    border-radius: 8px;
-    color: black;
-    text-align: center;
+.myfooter {
+  height: 15vh;
+  margin-top: 2.5rem;
+  background-color: blue;
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
 }
 
-.studentslist table th,.container td {
-  border: 2px solid;
+@media (max-width: 500px) {
+  .search {
+    height: 6vh;
+  }
 }
 
-.myfooter{
-   height: 25vh;
-   margin-top: 2.5rem;
-   background-color: blue;
-}
+.students-add {
+  .head {
+    margin-bottom: 2rem;
+    padding-bottom: 2rem;
+    padding-top: 2rem;
+  }
 
-@media (max-width:500px) {
-     .d_all_buttons{
-      width:60vw;
-    }.delete_all_form button{
-        width: 15vw;
-        height: 4vh;
-    }
-    .delete_form button{
-         width: 15vw;
-        height: 4vh;
-    }
-    .delete_all_form{
-        width: 80vw;
-        height: 35vh;
-    }
-    .delete_form input{
-        width: 65vw;
-        height: 5vh;
-    }
-    .delete_form{
-        width: 80vw;
-         height: 45vh;
-    }
-    .search {
-        height: 6vh;
-    }
-    
-}
-
-}
-
-
-
-
-
-
-.students-add{
-
-.head{
-   margin-bottom: 2rem;
-   padding-bottom: 2rem;
-   padding-top: 2rem;
-  
-}
-
-.mymain{
+  .mymain {
     display: flex;
     justify-content: center;
     align-items: center;
     margin-top: 9rem;
-}
+  }
 
-.add_student{
-   box-shadow: 2px 2px 2px 5px blue;
+  .add_student {
+    box-shadow: 2px 3px 8px rgba(0, 0, 0, 0.6);
     display: flex;
     justify-content: center;
     flex-direction: column;
     align-items: center;
-    width:60vw;
-    height: 100vh;
-    border-radius: 8px;
-     padding: 2px;
-     background-color: rgb(169, 250, 254);
-}
+    width: 80vw;
+    height: 100vh auto;
+    border-radius: 30px;
+    padding: 15px;
+    background-color: rgb(169, 250, 254);
+  }
 
-.same{
-   margin: 1rem;
-   width: 45vw ;
-   height: 6vh;
-   border-radius: 50px;
-   padding: 4px;
-   padding-left: 1rem;
-   border-color: blue;
-}
-.same1{
+  .same {
     margin: 1rem;
-   width: 15vw;
-   height: 6vh;
-   border-radius: 50px;
-   padding: 4px;
-   padding-left: 1rem;
-    border-color: blue;
-}
-
-.gender_label{
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    width: 15rem;
-    height: 10vh;
+    width: 70vw;
+    height: 6vh;
+    border-radius: 50px;
     border: none;
-}
+    padding: 4px;
+    padding-left: 1rem;
+    box-shadow: 2px 3px 8px rgba(0, 0, 0, 0.6);
+  }
+  .same1 {
+    margin: 1rem;
+    width: 70vw;
+    height: 6vh;
+    border-radius: 50px;
+    padding: 4px;
+    padding-left: 1rem;
+    border: none;
+    box-shadow: 2px 3px 8px rgba(0, 0, 0, 0.6);
+  }
 
-.gender_label legend{
-    font-weight: bold;
-    padding-bottom: 1rem;
-}
+  .choose_gender {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    gap: 0.5em;
 
-.add_student i{
+    width: 70vw;
+    height: 8vh;
+  }
+
+  .add_student i {
     font-size: 4rem;
     padding: 4px;
-}
+  }
 
-.add_student button{
-    width: 6rem;
-    height: 5vh;
+  .add_student button {
+    width: 70vw;
+    height: 6vh;
     font-weight: bold;
     margin-top: 1rem;
-    border-radius: 8px;
+    border-radius: 30px;
     padding: 2px;
-    margin-bottom: 1rem;
+    border: none;
     background-color: blue;
     color: white;
+  }
+
+  .myfooter {
+    height: 15vh;
+    margin-top: 2.5rem;
+    background-color: blue;
+  }
 }
-
-.myfooter{
-   height: 25vh;
-   margin-top: 2.5rem;
-   background-color: blue;
-}
-
-@media (max-width:900px) {
-    .same1{
-      width:25vw;
-    }
-@media (max-width:500px) {
-    .same1{
-      width:45vw;
-      height: 5vh;
-    }
-    .same{
-        width: 50vw;
-        height: 5vh;
-    }
-    .add_student button{
-        width: 15vw;
-        height: 4vh;
-    }
-    .head h1{
-    font-size: larger ;
-    }
-    .myfooter{
-        height: 15vh;
-    }
-    .mymain{
-        margin-top: 8rem;
-    }
-
-}
-
-
-}
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
